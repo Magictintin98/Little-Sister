@@ -34,6 +34,7 @@ namespace LittleSister
                 Console.WriteLine("\nResponse:\n");
                 Console.WriteLine(JsonPrettyPrint(contentString));
                 Console.WriteLine(IsTherePeople(contentString));
+                Console.WriteLine("Hello world");
             }
         }
         public static byte[] ImageToByteArray(this System.Drawing.Image image)
