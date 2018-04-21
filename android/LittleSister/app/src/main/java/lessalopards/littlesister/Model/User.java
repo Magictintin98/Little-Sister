@@ -12,7 +12,7 @@ public class User {
     private Date lastPositionTime;
     private String appToken;
 
-    public User(String id, String email, String name, boolean ghostmode, int lastPosition, Date lastPositionTime, String appToken) {
+    public User(String id, String name, String email, boolean ghostmode, int lastPosition, Date lastPositionTime, String appToken) {
         this.id = id;
         this.email = email;
         this.name = name;
