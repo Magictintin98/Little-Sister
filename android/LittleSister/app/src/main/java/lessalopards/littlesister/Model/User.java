@@ -1,5 +1,7 @@
 package lessalopards.littlesister.Model;
 
+import java.util.Date;
+
 public class User {
 
     private String id;
@@ -7,10 +9,10 @@ public class User {
     private String name;
     private boolean ghostmode;
     private int lastPosition;
-    private int lastPositionTime;
+    private Date lastPositionTime;
     private String appToken;
 
-    public User(String id, String email, String name, boolean ghostmode, int lastPosition, int lastPositionTime, String appToken) {
+    public User(String id, String email, String name, boolean ghostmode, int lastPosition, Date lastPositionTime, String appToken) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -60,11 +62,11 @@ public class User {
         this.lastPosition = lastPosition;
     }
 
-    public int getLastPositionTime() {
+    public Date getLastPositionTime() {
         return lastPositionTime;
     }
 
-    public void setLastPositionTime(int lastPositionTime) {
+    public void setLastPositionTime(Date lastPositionTime) {
         this.lastPositionTime = lastPositionTime;
     }
 

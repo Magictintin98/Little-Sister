@@ -1,5 +1,7 @@
 package lessalopards.littlesister.DAO;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -9,6 +11,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Date;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -17,7 +21,7 @@ import lessalopards.littlesister.Model.User;
 public class UserDAO {
     private String api = "http://littlesister2.azurewebsites.net/api/user";
 
-    public ArrayList<User> getAllUsers() throws Exception {
+    public ArrayList<User> getAllUsers() {
         StringBuilder sb = new StringBuilder();
         String stringJSON;
         String line;
@@ -30,13 +34,13 @@ public class UserDAO {
             }
             br.close();
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            Log.d("update", e.getMessage());
         }
         stringJSON = sb.toString();
         return jsonToUsers(stringJSON);
     }
 
-    public User getUser(int id) throws Exception {
+    public User getUser(int id) {
         StringBuilder sb = new StringBuilder();
         String stringJSON;
         String line;
@@ -53,12 +57,39 @@ public class UserDAO {
         }
         stringJSON = sb.toString();
         if(stringJSON==null) {
-            throw new Exception("Erreur connexion");
+            ;
         }
         return jsonToUser(stringJSON);
     }
 
-    public int updateUser(String id, String name, String email, boolean ghostmode, int lastPosition, int lastPositionTime, String appToken) {
+    public int createUser(String id, String name, String email, boolean ghostmode, int lastPosition, Date lastPositionTime, String appToken) {
+        int responseCode = -1;
+
+        try {
+            URL url = new URL(api + "/create/");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setDoOutput(true);
+            connection.setRequestProperty("Content-Type", "application/json");
+
+            //Send credentials
+            String query = newUserToJSON(id, name, email, ghostmode, lastPosition, lastPositionTime, appToken);
+
+            OutputStream os = connection.getOutputStream();
+            OutputStreamWriter osw = new OutputStreamWriter(os);
+            osw.write(query);
+            osw.flush();
+            osw.close();
+            os.close();
+            responseCode = connection.getResponseCode();
+            connection.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return responseCode;
+    }
+
+    public int updateUser(String id, String name, String email, boolean ghostmode, int lastPosition, Date lastPositionTime, String appToken) {
         int responseCode = -1;
         try {
             URL url = new URL(api + "/update/" + id);
@@ -76,15 +107,15 @@ public class UserDAO {
             osw.flush();
             osw.close();
             os.close();
-            //connection.connect();
             responseCode = connection.getResponseCode();
+            connection.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return responseCode;
     }
 
-    private String newUserToJSON(String id, String name, String email, boolean ghostmode, int lastPosition, int lastPositionTime, String appToken) {
+    private String newUserToJSON(String id, String name, String email, boolean ghostmode, int lastPosition, Date lastPositionTime, String appToken) {
         Gson gson = new Gson();
         User user = new User(id, name, email, ghostmode, lastPosition, lastPositionTime, appToken);
         return gson.toJson(user);
