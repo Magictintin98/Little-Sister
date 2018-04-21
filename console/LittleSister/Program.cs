@@ -17,7 +17,6 @@ namespace LittleSister
         {
             VideoCapture videoCapture = new VideoCapture(0);
             videoCapture.Start();
-            Console.WriteLine(videoCapture.CaptureSource);
             while (true)
             {
                 videoCapture.ImageGrabbed += VideoCapture_ImageGrabbed;
