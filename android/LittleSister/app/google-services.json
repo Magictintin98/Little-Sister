@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "293936957012",
+    "firebase_url": "https://little-sister-37653.firebaseio.com",
+    "project_id": "little-sister-37653",
+    "storage_bucket": "little-sister-37653.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293936957012:android:4b6002ee753b6883",
+        "android_client_info": {
+          "package_name": "lessalopards.littlesister"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293936957012-9p67gq79h4f39fbtp41bdg0jffon1sqs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "lessalopards.littlesister",
+            "certificate_hash": "f5e00ae2fa661abf8b34d12832b12b4481428aaa"
+          }
+        },
+        {
+          "client_id": "293936957012-83j3pjaas3gk0493ac6n26rp92rgsq8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWv6GPCum17qRGjZovhiKZsO4l_KIUQRU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293936957012-83j3pjaas3gk0493ac6n26rp92rgsq8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
