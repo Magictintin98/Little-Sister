@@ -1,0 +1,22 @@
+﻿@{
+    string title = ViewBag.title;
+    string titre = ViewBag.titre;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <title>@title</title>
+</head>
+<body class="landing">
+    <h1>@titre</h1>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <p>Copyright all rights reserved © 2018</p>
+    </footer>
+</body>
+</html>
