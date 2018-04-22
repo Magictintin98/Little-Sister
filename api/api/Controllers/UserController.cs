@@ -62,7 +62,14 @@ namespace api.Controllers
             return new NoContentResult();
         }
 
-
+        //Get api/user/track/id
+        [HttpGet("{id}")]
+        public IActionResult Track(string id) {
+            //Call faceApi with id
+            //User user = reponse faceApi
+            User user = new User("tempId", "tempName", "tempEmail@mail.com", 1, DateTime.Now, false, "tempToken");
+            return new ObjectResult(user);
+        }
 
         //Post api/user/createuser
         [HttpPost]
