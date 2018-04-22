@@ -11,5 +11,6 @@ namespace LittleSister
         public double top;
         public double left;
         public double width;
+        public double height;
     }
 }

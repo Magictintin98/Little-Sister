@@ -1,12 +1,14 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Linq;
 using System.Drawing;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Web.Helpers;
+using System.Collections.Generic;
 
 namespace LittleSister
 {
@@ -39,8 +41,8 @@ namespace LittleSister
 
                 // Get the JSON response.
                 string contentString = await response.Content.ReadAsStringAsync();
-                FaceAPIJson faceapijson = JsonConvert.DeserializeObject<FaceAPIJson>(contentString);
-                IdentityCheck(faceapijson);
+                IEnumerable<FaceAPIJson> faceapijson = JsonConvert.DeserializeObject<IEnumerable<FaceAPIJson>>(contentString);
+                IdentityCheck(faceapijson.ToList().First());
             }
         }
         public static async void IdentityCheck(FaceAPIJson faceapijson)
@@ -51,7 +53,7 @@ namespace LittleSister
             HttpResponseMessage response;
             JObject json = new JObject();
             json["PersonGroupId"] = 1;
-            json["faceIds"] = new JValue(new String[] { "c5c24a82-6845-4031-9d5d-978df9175426" });
+            json["faceIds"] = JToken.FromObject(new List<string>() { faceapijson.faceId });
             json["maxNumOfCandidatesReturned"] = 1;
             json["confidenceThreshold"] = 0.5;
             

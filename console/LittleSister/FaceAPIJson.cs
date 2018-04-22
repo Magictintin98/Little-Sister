@@ -9,8 +9,8 @@ namespace LittleSister
     public class FaceAPIJson
     {
         public string faceId;
-        public List<FaceRectangle> faceRectangle;
-        public FaceAPIJson(string faceId,List<FaceRectangle>faceRectangle)
+        public FaceRectangle faceRectangle;
+        public FaceAPIJson(string faceId,FaceRectangle faceRectangle)
         {
             this.faceId = faceId;
             this.faceRectangle = faceRectangle;

@@ -27,11 +27,13 @@ namespace LittleSister
 
         private static void VideoCapture_ImageGrabbed(object sender, EventArgs e)
         {
-            //pc nathan -> "C:/Users/natha/OneDrive/Documents/test/img.png"
+            string path = "C:/Users/natha/OneDrive/Documents/test/img.png";
 
-            string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\images\";
+            /*USe this path for relative path*/
+            //string folder = path.getdirectoryname(process.getcurrentprocess().mainmodule.filename) + @"\images\";
+            //string path = folder + @"img.png";
+            //path.replace(@"\\", @"\"); //does not work yet
 
-            string path = folder + @"img.png";
             Console.WriteLine("reussi");
             VideoCapture capture = (VideoCapture)sender;
             //capture.Grab();
