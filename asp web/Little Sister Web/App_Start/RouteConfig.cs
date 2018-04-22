@@ -20,8 +20,8 @@ namespace Little_Sister_Web
             );
             routes.MapRoute(
                 name:"Main",
-                url: "{controller}/{action}/{name}/{lastPosTime}/{id}/{ghost}/{mail}/{lastPos}",
-                defaults: new { controller = "Main", action = "Rechercher", name=UrlParameter.Optional, lastPosTime=UrlParameter.Optional, id = UrlParameter.Optional, ghost=UrlParameter.Optional, mail=UrlParameter.Optional, lastPos=UrlParameter.Optional}
+                url: "{controller}/{action}/{name}/{lastPosTime}/{url}/{ghost}/{mail}/{lastPos}",
+                defaults: new { controller = "Main", action = "Rechercher", name=UrlParameter.Optional, lastPosTime=UrlParameter.Optional, url = UrlParameter.Optional, ghost=UrlParameter.Optional, mail=UrlParameter.Optional, lastPos=UrlParameter.Optional}
             );
         }
     }

@@ -41,18 +41,29 @@
                         <tr>
                             <td>Nom</td>
                             <td>Photo</td>
-                            <td>Statut</td>
+                            <td>Mode invisible?</td>
                             <td>Lancer la recherche?</td>
                         </tr>
                         <tr>
                             <td>@ViewBag.name</td>
-                            <td>@ViewBag.photo</td>
+                            <td>@ViewBag.url</td>
                             <td>@ViewBag.ghost</td>
                             <td>
-                                <a href="/Main/Verrouiller">
+                                <a href="/Main/Verrouiller?name=@ViewBag.name&mail=@ViewBag.mail&url=@ViewBag.url">
                                     <p>
-                                        <input type="submit"
-                                        value="Stalker" />
+                                        @{
+                                            
+                                            if (ViewBag.ghost)
+                                            {
+                                                <b>Désolé, cet utilisateur ne souhaite pas être trouvé.</b>
+                                            }
+                                            else
+                                            {
+
+                                                <input type="submit"
+                                                        value="Stalker" />
+                                            }
+                                        }
                                     </p>
                                 </a>
                             </td>

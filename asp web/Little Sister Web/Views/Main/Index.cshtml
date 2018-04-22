@@ -50,15 +50,16 @@
                             {
                                 <tr>
                                     <td>
-                                        <a href="/Main/Rechercher?name=@u.Name&id=@u.Id&ghost=@u.Ghostmode">@u.Name</a>
+                                        @{ 
+                                            string o = "/Main/Rechercher?name="+u.Name+"&lastPosTime="+u.LastPositionTime+"&url="+u.Id+"&ghost="+u.Ghostmode+"&mail="+u.Email;
+                                            string url = o.Replace(" ", "%20");
+
+                                        }
+                                        <a href=@url>@u.Name</a>
                                     </td>
                                     <td>@u.LastPositionTime</td>
                                 </tr>
                             }
-                        <!--<tr>
-                            <td><a href="/Main/Rechercher">Flavian Biscontosaure</a></td>
-                            <td></td>
-                        </tr>-->
                     </table>
                 </section>
             </div>
