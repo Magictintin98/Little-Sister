@@ -12543,13 +12543,13 @@
       "projectName": "api",
       "projectPath": "/Users/xvercruysse/Documents/GitRepos/Hackathon_MIC_2018/api/api/api.csproj",
       "packagesPath": "/Users/xvercruysse/.nuget/packages/",
-      "outputPath": "/Users/xvercruysse/Documents/GitRepos/Hackathon_MIC_2018/api/api/obj",
+      "outputPath": "/Users/xvercruysse/Documents/GitRepos/Hackathon_MIC_2018/api/api/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/xvercruysse/.config/NuGet/NuGet.Config"
+        "/Users/xvercruysse/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -12572,7 +12572,6 @@
       "netcoreapp2.0": {
         "dependencies": {
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true

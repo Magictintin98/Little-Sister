@@ -27,11 +27,11 @@ namespace api.Controllers
         [HttpGet("{id}", Name ="GetUser")]
         public IActionResult GetById(string id)
         {
-            var users = _context.Users.FirstOrDefault(t => t.Id == id);
-            if (users == null) {
+            var user = _context.Users.FirstOrDefault(t => t.Id == id);
+            if (user == null) {
                 return NotFound();
             }
-            return new ObjectResult(users);
+            return new ObjectResult(user);
         }
 
         //Put api/user/updateuser/5
@@ -65,10 +65,19 @@ namespace api.Controllers
         //Get api/user/track/id
         [HttpGet("{id}")]
         public IActionResult Track(string id) {
+            var user = _context.Users.FirstOrDefault(t => t.Id == id);
+            if (user == null) {
+                return NotFound();
+            }
             //Call faceApi with id
-            //User user = reponse faceApi
-            User user = new User("tempId", "tempName", "tempEmail@mail.com", 1, DateTime.Now, false, "tempToken");
-            return new ObjectResult(user);
+            //user.LastPosition = ; //get with faceapi
+            //user.LastPositionTime = DateTime.Now;
+
+            //_context.Users.Update(user);
+            //_context.SaveChanges();
+
+            User tempUser = new User("tempId", "tempName", "tempEmail@mail.com", 1, DateTime.Now, false, "tempToken");
+            return new ObjectResult(tempUser);
         }
 
         //Post api/user/createuser
