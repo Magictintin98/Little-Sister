@@ -39,13 +39,20 @@
                 <section>
                     <table class="alt" >
                         <tr>
-                            <td>Nom + Prénom</td>
+                            <td>Nom</td>
                             <td>Photo</td>
                             <td>Statut</td>
-                            <td><a href="/Main/Verrouiller">
+                            <td>Lancer la recherche?</td>
+                        </tr>
+                        <tr>
+                            <td>@ViewBag.name</td>
+                            <td>@ViewBag.photo</td>
+                            <td>@ViewBag.ghost</td>
+                            <td>
+                                <a href="/Main/Verrouiller">
                                     <p>
                                         <input type="submit"
-                                               value="Stalker" />
+                                        value="Stalker" />
                                     </p>
                                 </a>
                             </td>

@@ -25,5 +25,9 @@ namespace Little_Sister_Web.Models
             Ghostmode = g;
             Name = n;
         }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

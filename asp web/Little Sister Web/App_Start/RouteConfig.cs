@@ -18,6 +18,11 @@ namespace Little_Sister_Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name:"Main",
+                url: "{controller}/{action}/{name}/{lastPosTime}/{id}/{ghost}/{mail}/{lastPos}",
+                defaults: new { controller = "Main", action = "Rechercher", name=UrlParameter.Optional, lastPosTime=UrlParameter.Optional, id = UrlParameter.Optional, ghost=UrlParameter.Optional, mail=UrlParameter.Optional, lastPos=UrlParameter.Optional}
+            );
         }
     }
 }

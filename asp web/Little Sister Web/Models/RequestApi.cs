@@ -10,13 +10,13 @@ using System.IO;
 
 namespace Little_Sister_Web.Models
 {
-    class RequestApi
+    public class RequestApi
     {
-        private string baseUrl = "littlesister2.azurewebsites.net/api";
-        public async Task<IEnumerable<User>> GetAllUsers()
+        private string baseUrl = @"http://littlesister2.azurewebsites.net/api";
+        public async Task<List<User>> GetAllUsers()
         {
             var jsonString = string.Empty;
-            IEnumerable<User> allUsers = null;
+            List<User> allUsers = null;
             try
             {
                 string url = $"{baseUrl}/User/getall";
@@ -35,7 +35,7 @@ namespace Little_Sister_Web.Models
             }
             if (jsonString!=string.Empty)
             {
-                allUsers = JsonConvert.DeserializeObject<IEnumerable<User>>(jsonString);
+                allUsers = JsonConvert.DeserializeObject<List<User>>(jsonString);
             }
             return allUsers;
         }

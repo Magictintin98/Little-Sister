@@ -1,4 +1,7 @@
-﻿<!DOCTYPE HTML>
+﻿@using System.Data.Entity;
+@using Little_Sister_Web.Models;
+@model List<User>
+<!DOCTYPE HTML>
 <!--
     Landed by HTML5 UP
     html5up.net |
@@ -16,7 +19,7 @@
 </head>
 <body>
     <div id="page-wrapper">
-
+        
         <!-- Header -->
         <header id="header">
             <nav id="nav">
@@ -26,7 +29,6 @@
                 </ul>
             </nav>
         </header>
-
         <!-- Main -->
         <div id="main" class="wrapper style1">
             <div class="container">
@@ -40,67 +42,37 @@
                     <h3>Choisissez votre cible :</h3>
                     <table class="alt">
                         <tr>
-                            <td>Nom + Prénom</td>
-                            <td>Photos</td>
+                            <td>Nom et Prénom</td>
+                            <td>Dernière localisation</td>
                         </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Jean Chie</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Jean Tend</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Jean Celestin</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Jean Renault</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Jean Nathan</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Mout Hard</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Rat Gondin</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Dino Saure</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Man Darine</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
+                        
+                            @foreach (User u in ViewBag.request)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="/Main/Rechercher?name=@u.Name&id=@u.Id&ghost=@u.Ghostmode">@u.Name</a>
+                                    </td>
+                                    <td>@u.LastPositionTime</td>
+                                </tr>
+                            }
+                        <!--<tr>
                             <td><a href="/Main/Rechercher">Flavian Biscontosaure</a></td>
                             <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Main/Rechercher">Mac Donald</a></td>
-                            <td></td>
-                        </tr>
+                        </tr>-->
                     </table>
                 </section>
             </div>
-                    
 
 
-        <!-- Footer -->
-        <footer id="footer">
-            <ul class="copyright">
-                <li>&copy; Untitled. All rights reserved.</li>
-                <li>Designed by "Les Salopards"</li>
-            </ul>
-        </footer>
 
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved.</li>
+                    <li>Designed by "Les Salopards"</li>
+                </ul>
+            </footer>
+        </div>
     </div>
 
     <!-- Scripts -->
