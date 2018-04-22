@@ -48,24 +48,20 @@
                             <td>@ViewBag.url</td>
                             <td>@ViewBag.ghost</td>
                             <td>
-                                <a href="/Main/Verrouiller?name=@ViewBag.name&mail=@ViewBag.mail&url=@ViewBag.url">
-                                    <p>
-                                        @{
+                                
+                                    @{
                                             
-                                            if (ViewBag.ghost)
-                                            {
-                                                <b>Désolé, cet utilisateur ne souhaite pas être trouvé.</b>
-                                            }
-                                            else
-                                            {
-                                    <p>
-                                        <a href="/Main/Verrouiller?target=@ViewBag.url">Chercher</a>
-                                    </p>
-                                                
-                                            }
+                                        if (ViewBag.ghost)
+                                        {
+                                            <b>Désolé, cet utilisateur ne souhaite pas être trouvé.</b>
                                         }
-                                    </p>
-                                </a>
+                                        else
+                                        {
+                                            <!--<a href="/Main/Verrouiller?target=@ViewBag.url">Chercher</a>-->
+                                            <input type="button" onclick="location.href='/Main/Verrouiller?target=@ViewBag.url';" value="Chercher" />
+                                        }
+                                    }
+                                
                             </td>
                         </tr>
                     </table>
@@ -75,7 +71,7 @@
             <!-- Footer -->
             <footer id="footer">
                 <ul class="copyright">
-                    <li>&copy; Untitled. All rights reserved.</li>
+                    <li>Copyright © 2018 Little Sister Inc. All rights reserved.</li>
                     <li>Designed by "Les Salopards"</li>
                 </ul>
             </footer>

@@ -17,7 +17,7 @@ namespace Little_Sister_Web.Controllers
         }
         public ActionResult Accueil()
         {
-            ViewBag.title = "Accueil";
+            ViewBag.title = "Little Sister";
             ViewBag.titre = "Accueil";
             return View();
         }
