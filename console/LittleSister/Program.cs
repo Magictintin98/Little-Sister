@@ -34,7 +34,6 @@ namespace LittleSister
             //string path = folder + @"img.png";
             //path.replace(@"\\", @"\"); //does not work yet
 
-            Console.WriteLine("reussi");
             VideoCapture capture = (VideoCapture)sender;
             //capture.Grab();
             Mat image=new Mat();
