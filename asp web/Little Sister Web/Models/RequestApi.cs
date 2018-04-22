@@ -46,7 +46,7 @@ namespace Little_Sister_Web.Models
             User user = null;
             try
             {
-                string url = $"{baseUrl}/User/track/{id}";
+                string url = $"{baseUrl}/User/getbyid/{id}";
                 var request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "GET";
 

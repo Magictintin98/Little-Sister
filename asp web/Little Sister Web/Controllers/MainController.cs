@@ -32,6 +32,11 @@ namespace Little_Sister_Web.Controllers
         {
             var request = new RequestApi();
             User cible = await request.TrackUser(target);
+            ViewBag.name = cible.Name;
+            ViewBag.mail = cible.Email;
+            ViewBag.url = cible.Id;
+            ViewBag.LasPos = cible.LastPosition;
+            ViewBag.LasPosTime = cible.LastPositionTime;
             return View();
         }
     }
