@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -27,7 +28,10 @@ namespace LittleSister
         private static void VideoCapture_ImageGrabbed(object sender, EventArgs e)
         {
             //pc nathan -> "C:/Users/natha/OneDrive/Documents/test/img.png"
-            string path = "C:/Users/img.png";
+
+            string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\images\";
+
+            string path = folder + @"img.png";
             Console.WriteLine("reussi");
             VideoCapture capture = (VideoCapture)sender;
             //capture.Grab();
