@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LittleSister
 {
-    static class Extensions
+            public static class Extensions2
         {
             public static void ForEach<T>(this IEnumerable<T> ie, Action<T> action)
             {

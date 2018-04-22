@@ -26,7 +26,8 @@ namespace LittleSister
 
         private static void VideoCapture_ImageGrabbed(object sender, EventArgs e)
         {
-            string path = "C:/Users/natha/OneDrive/Documents/test/img.png";
+            //pc nathan -> "C:/Users/natha/OneDrive/Documents/test/img.png"
+            string path = "C:/Users/img.png";
             Console.WriteLine("reussi");
             VideoCapture capture = (VideoCapture)sender;
             //capture.Grab();

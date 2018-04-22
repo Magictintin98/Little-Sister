@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Drawing;
 using System.IO;
@@ -48,8 +49,16 @@ namespace LittleSister
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
             string uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify" ;
             HttpResponseMessage response;
-            var data = new { PersonGroupId= 1, faceIds=["c5c24a82-6845-4031-9d5d-978df9175426"],maxNumOfCandidatesReturned= 1, confidenceThreshold= 0.5};
-            response = await client.PostAsync(uri, data.AsJson());
+            JObject json = new JObject();
+            json["PersonGroupId"] = 1;
+            json["faceIds"] = new JValue(new String[] { "c5c24a82-6845-4031-9d5d-978df9175426" });
+            json["maxNumOfCandidatesReturned"] = 1;
+            json["confidenceThreshold"] = 0.5;
+            
+            //var data = new { PersonGroupId= 1, faceIds=["c5c24a82-6845-4031-9d5d-978df9175426"],maxNumOfCandidatesReturned= 1, confidenceThreshold= 0.5};
+            
+            var content = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+            response = await client.PostAsync(uri, content);
 
             // Get the JSON response.
             string contentString = await response.Content.ReadAsStringAsync();
