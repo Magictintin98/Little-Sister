@@ -26,17 +26,18 @@ namespace LittleSister
 
         private static void VideoCapture_ImageGrabbed(object sender, EventArgs e)
         {
+            string path = "C:/Users/natha/OneDrive/Documents/test/img.png";
             Console.WriteLine("reussi");
             VideoCapture capture = (VideoCapture)sender;
             //capture.Grab();
             Mat image=new Mat();
             capture.Retrieve(image,0);
-            image.Save("C:/Users/natha/OneDrive/Documents/test/img.png");
-            Image img = Image.FromFile("C:/Users/natha/OneDrive/Documents/test/img.png");
+            image.Save(path);
+            Image img = Image.FromFile(path);
             VisionAPI.MakeAnalysisRequest(img);
             System.Threading.Thread.Sleep(5000);
             img.Dispose();
-            File.Delete("C:/Users/natha/OneDrive/Documents/test/img.png");
+            File.Delete(path);
         }
     }
 }
