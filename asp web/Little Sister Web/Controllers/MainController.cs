@@ -18,15 +18,22 @@ namespace Little_Sister_Web.Controllers
             ViewBag.request = await request.GetAllUsers();
             return View();
         }
-        public ActionResult Rechercher(string nom,string id, bool ghost)
+        [HttpGet]
+        public ActionResult Rechercher(string name, string lastPosTime, string url, bool ghost, string mail)
         {
-            ViewBag.name = nom;
-            ViewBag.photo = id;
+            ViewBag.name = name;
+            ViewBag.url = url;
             ViewBag.ghost = ghost;
+            ViewBag.lastPosTime = lastPosTime;
+            ViewBag.mail = mail;
             return View();
         }
-        public ActionResult Verrouiller()
+        public ActionResult Verrouiller(string name, string mail, string url)
         {
+            ViewBag.name = name;
+            ViewBag.mail = mail;
+            ViewBag.url = url;
+
             return View();
         }
     }
