@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>Elements - Landed by HTML5 UP</title>
+    <title>Little Sister</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -21,7 +21,6 @@
         <header id="header">
             <nav id="nav">
                 <ul>
-                    <li><a href="#" class="button special">Salopard !</a></li>
                     <li><a href="/Home/Index" class="button special">Déconnection</a></li>
                 </ul>
             </nav>
@@ -31,8 +30,8 @@
         <div id="main" class="wrapper style1">
             <div class="container">
                 <header class="major">
-                    <h2>Victime trouvée !</h2>
-                    <p>Effaçage de toute trace de passage en cours de finalisation...</p>
+                    <h2>La Petite Soeur est partie à sa recherche.</h2>
+                    <p>Voyons voir ce qu'elle a trouvé...</p>
                 </header>
 
                 <!-- Text -->
@@ -43,12 +42,14 @@
                             <td>Mail</td>
                             <td>Photo</td>
                             <td>Positionnement</td>
+                            <td>Date/heure dernier positionnement</td>
                         </tr>
                         <tr>
                             <td>@ViewBag.name</td>
                             <td>@ViewBag.mail</td>
                             <td>@ViewBag.url</td>
-                            <td></td>
+                            <td>@ViewBag.LastPos</td>
+                            <td>@ViewBag.LastPosTime</td>
                         </tr>
                     </table>
                 </section>

@@ -11,7 +11,7 @@ namespace Little_Sister_Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.title = "Little Siter";
+            ViewBag.title = "Little Sister";
             ViewBag.titre = "Little Sister";
             return View();
         }

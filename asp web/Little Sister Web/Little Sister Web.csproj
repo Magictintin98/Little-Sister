@@ -123,6 +123,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="images\arrow.svg" />
     <Content Include="images\banner.jpg" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\ls2.png" />
     <Content Include="images\overlay.png" />
     <Content Include="images\pic01.jpg" />
     <Content Include="images\pic02.jpg" />
