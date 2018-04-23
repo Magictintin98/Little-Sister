@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>Elements - Landed by HTML5 UP</title>
+    <title>Little Sister</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -21,7 +21,6 @@
         <header id="header">
             <nav id="nav">
                 <ul>
-                    <li><a href="#" class="button special">Salopard !</a></li>
                     <li><a href="/Home/Index" class="button special">Déconnection</a></li>
                 </ul>
             </nav>
@@ -43,12 +42,14 @@
                             <td>Mail</td>
                             <td>Photo</td>
                             <td>Positionnement</td>
+                            <td>Date/heure dernier positionnement</td>
                         </tr>
                         <tr>
                             <td>@ViewBag.name</td>
                             <td>@ViewBag.mail</td>
                             <td>@ViewBag.url</td>
-                            <td></td>
+                            <td>@ViewBag.LastPos</td>
+                            <td>@ViewBag.LastPosTime</td>
                         </tr>
                     </table>
                 </section>
@@ -59,7 +60,7 @@
             <!-- Footer -->
             <footer id="footer">
                 <ul class="copyright">
-                    <li>&copy; Untitled. All rights reserved.</li>
+                    <li>Copyright © 2018 Little Sister Inc. All rights reserved.</li>
                     <li>Designed by "Les Salopards"</li>
                 </ul>
             </footer>

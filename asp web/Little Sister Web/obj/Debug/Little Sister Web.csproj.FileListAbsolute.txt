@@ -246,3 +246,7 @@ C:\Users\simon\Desktop\ZBRA\Hackathon_MIC_2018\asp web\Little Sister Web\obj\Deb
 C:\Users\simon\Desktop\ZBRA\Hackathon_MIC_2018\asp web\Little Sister Web\obj\Debug\Little Sister Web.csproj.CopyComplete
 C:\Users\simon\Desktop\ZBRA\Hackathon_MIC_2018\asp web\Little Sister Web\obj\Debug\Little Sister Web.dll
 C:\Users\simon\Desktop\ZBRA\Hackathon_MIC_2018\asp web\Little Sister Web\obj\Debug\Little Sister Web.pdb
+C:\Users\Massimo Gentile\source\repos\Hackathon_MIC_2018\asp web\Little Sister Web\bin\EntityFramework.dll
+C:\Users\Massimo Gentile\source\repos\Hackathon_MIC_2018\asp web\Little Sister Web\bin\EntityFramework.SqlServer.dll
+C:\Users\Massimo Gentile\source\repos\Hackathon_MIC_2018\asp web\Little Sister Web\bin\EntityFramework.xml
+C:\Users\Massimo Gentile\source\repos\Hackathon_MIC_2018\asp web\Little Sister Web\bin\EntityFramework.SqlServer.xml

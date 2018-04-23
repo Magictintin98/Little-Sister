@@ -28,12 +28,15 @@ namespace Little_Sister_Web.Controllers
             ViewBag.mail = mail;
             return View();
         }
-        public ActionResult Verrouiller(string name, string mail, string url)
+        public async Task<ActionResult> Verrouiller(string target)
         {
-            ViewBag.name = name;
-            ViewBag.mail = mail;
-            ViewBag.url = url;
-
+            var request = new RequestApi();
+            User cible = await request.TrackUser(target);
+            ViewBag.name = cible.Name;
+            ViewBag.mail = cible.Email;
+            ViewBag.url = cible.Id;
+            ViewBag.LasPos = cible.LastPosition;
+            ViewBag.LasPosTime = cible.LastPositionTime;
             return View();
         }
     }

@@ -33,11 +33,38 @@ namespace Little_Sister_Web.Models
             {
                 return null;
             }
-            if (jsonString!=string.Empty)
+            if (jsonString != string.Empty)
             {
                 allUsers = JsonConvert.DeserializeObject<List<User>>(jsonString);
             }
             return allUsers;
+        }
+
+        public async Task<User> TrackUser(string id)
+        {
+            var jsonString = string.Empty;
+            User user = null;
+            try
+            {
+                string url = $"{baseUrl}/User/getbyid/{id}";
+                var request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "GET";
+
+                var response = (HttpWebResponse)await request.GetResponseAsync();
+                using (var streamReader = new StreamReader(response.GetResponseStream()))
+                {
+                    jsonString = streamReader.ReadToEnd();
+                }
+            }
+            catch (WebException ex)
+            {
+                return null;
+            }
+            if (jsonString != string.Empty)
+            {
+                user = JsonConvert.DeserializeObject<User>(jsonString);
+            }
+            return user;
         }
 
         public async Task<IEnumerable<Position>> GetAllPositions()
