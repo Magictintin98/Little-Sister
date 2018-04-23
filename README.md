@@ -19,21 +19,6 @@ If he refuses, the first user will be informed and he will not be able to see th
 
 ### UML diagram
 ![ScreenShot](uml_diagram.jpg)
-```mermaid
-sequenceDiagram
-Mobile/web app ->> API: Send request to locate user B
-API ->> Mobile/web app: Ask consent from user B
-Mobile/web app -->>API: Response from user B
-API ->> Computer Vision: Sends a frame of each camera
-Computer Vision -->> API: Return frames containing people
-API ->> Face API : Sends frames containing people
-Face API ->> Face API : Identifies people
-Face API ->> API : Returns Camera's ids with identified people's ids
-API ->> API : Update DB with new positions
-API--x Mobile/web app: Return user B's position
-Note right of Mobile/web app: If user B can't be located, his last known position will be sent
-```
-
 
 # License
 
