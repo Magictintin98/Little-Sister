@@ -1,2 +1,0 @@
-C:\Users\natha\OneDrive\Documents\Hackathon_MIC_2018\LittleSisterAddFace\LittleSisterAddFace\obj\Debug\LittleSisterAddFace.csprojResolveAssemblyReference.cache
-C:\Users\natha\OneDrive\Documents\Hackathon_MIC_2018\LittleSisterAddFace\LittleSisterAddFace\obj\Debug\LittleSisterAddFace.csproj.CoreCompileInputs.cache
