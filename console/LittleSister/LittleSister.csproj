@@ -94,6 +94,7 @@
     <Compile Include="FaceRectangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Vision.cs" />
     <Compile Include="VisionAPI.cs" />
     <Compile Include="VisionCategorie.cs" />

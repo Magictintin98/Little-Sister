@@ -41,7 +41,7 @@ namespace LittleSister
             image.Save(path);
             Image img = Image.FromFile(path);
             VisionAPI.MakeAnalysisRequest(img);
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(50000);
             img.Dispose();
             File.Delete(path);
         }

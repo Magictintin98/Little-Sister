@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Web.Helpers;
 using System.Collections.Generic;
+using System.Net;
 
 namespace LittleSister
 {
@@ -65,7 +66,57 @@ namespace LittleSister
             // Get the JSON response.
             string contentString = await response.Content.ReadAsStringAsync();
             Console.WriteLine(contentString);
+            UpdateAndPrint(contentString);
         }
+
+        public static async void UpdateAndPrint(string faceapiResponse)
+        {
+            //littlesister2.azurewebsites.net
+            string baseUrl = "http://localhost:5000/api";
+            var result = false;
+            var responseText = string.Empty;
+            HttpWebResponse response;
+            Console.WriteLine("Debut fct");
+            //Deserialize response
+            IEnumerable<IdentifiedUser> identifiedUser = JsonConvert.DeserializeObject<IEnumerable<IdentifiedUser>>(faceapiResponse);
+            var personId = (string)identifiedUser.ToArray()[0].Candidates[0].personId;
+            var confidence = (double)identifiedUser.ToArray()[0].Candidates[0].confidence;
+            try
+            {
+                string url = $"{baseUrl}/User/updateposition/{personId}";
+                var request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "PUT";
+                request.ContentType = "application/json";
+                using (var streamWriter = new StreamWriter(await request.GetRequestStreamAsync()))
+                {
+                    /* Serializing */
+                    JObject body = new JObject();
+                    body["lastPosition"] = 1;
+                    body["lastPositionTime"] = DateTime.Now;
+                    var json = body.ToString();
+
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                }
+
+                /* Request */
+                response = (HttpWebResponse)await request.GetResponseAsync();
+                using (var streamReader = new StreamReader(response.GetResponseStream()))
+                {
+                    responseText = streamReader.ReadToEnd();
+
+                }
+                result = response.StatusCode == HttpStatusCode.NoContent;
+
+                Console.WriteLine("Utilisateur mis a jour : " + result);
+            }
+            catch (Exception ex)
+            {
+               
+                result = false;
+            }
+        }
+
         public static byte[] ImageToByteArray(Image image)
         {
             using (var ms = new MemoryStream())
@@ -74,5 +125,17 @@ namespace LittleSister
                 return ms.ToArray();
             }
         }
+    }
+
+    public class IdentifiedUser
+    {
+        public string faceId { get; set; }
+        public Candidates[] Candidates { get; set; }
+    }
+
+    public class Candidates
+    {
+        public string personId { get; set; }
+        public double confidence { get; set; }
     }
 }

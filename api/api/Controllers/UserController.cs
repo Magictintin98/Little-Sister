@@ -62,6 +62,24 @@ namespace api.Controllers
             return new NoContentResult();
         }
 
+        //Put api/user/updateuser/5
+        [HttpPut("{id}")]
+        public IActionResult UpdatePosition(string id, [FromBody] User user)
+        {
+
+            var tempUser = _context.Users.FirstOrDefault(t => t.Id == id);
+            if (tempUser == null)
+            {
+                return NotFound();
+            }
+            tempUser.LastPosition = user.LastPosition;
+            tempUser.LastPositionTime = user.LastPositionTime;
+
+            _context.Users.Update(tempUser);
+            _context.SaveChanges();
+            return new NoContentResult();
+        }
+
         //Get api/user/track/id
         [HttpGet("{id}")]
         public IActionResult Track(string id) {
@@ -97,5 +115,7 @@ namespace api.Controllers
 
             return CreatedAtRoute("GetUser", new { id = user.Id }, user);
         }
+
+
     }
 }
