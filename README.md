@@ -18,7 +18,7 @@ When an user asks for the location of another user, this other user will be sent
 If he refuses, the first user will be informed and he will not be able to see the position of the other user.
 
 ### UML diagram
-
+![ScreenShot](uml_diagram.jpg)
 ```mermaid
 sequenceDiagram
 Mobile/web app ->> API: Send request to locate user B
